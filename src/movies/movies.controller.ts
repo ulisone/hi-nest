@@ -5,7 +5,7 @@ export class MoviesController {
 
     @Get()
     getAll(){
-        return "This will return all movies 2";
+        return "This will return all movies 3";
     }
 
     @Get('search')
