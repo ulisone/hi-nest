@@ -1,4 +1,5 @@
 import { Controller, Param,  Get, Post, Delete, Patch, Body, Query} from '@nestjs/common';
+import { UpdateMovieDto } from './dto/update-movie.dto';
 
 @Controller('movies')
 export class MoviesController {
@@ -24,15 +25,11 @@ export class MoviesController {
     }
 
     @Delete('/:id')
-    remvoe(@Param('id') movieId: string){
+    remove(@Param('id') movieId: string) {
         return `This will delete a movie width the id: ${movieId}`
     }
-
-    @Patch('/:id')
-    patch(@Param('id') movieId: string, @Body() updateData){
-        return {
-            updatedMovie: movieId,
-            ...updateData,
-        }
+    @Patch(':id')
+    update(@Param('id') id: string, @Body() updateNetInterfaceDto: UpdateMovieDto) {
+        return `update movie`;
     }
 }
